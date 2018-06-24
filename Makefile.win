@@ -1,0 +1,49 @@
+# Project: AlquilerVehiculos
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Vehiculo.o Transporte.o Coche.o Microbus.o Carga.o Furgoneta.o Camion.o
+LINKOBJ  = main.o Vehiculo.o Transporte.o Coche.o Microbus.o Carga.o Furgoneta.o Camion.o
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = AlquilerVehiculos.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Vehiculo.o: Vehiculo.cpp
+	$(CPP) -c Vehiculo.cpp -o Vehiculo.o $(CXXFLAGS)
+
+Transporte.o: Transporte.cpp
+	$(CPP) -c Transporte.cpp -o Transporte.o $(CXXFLAGS)
+
+Coche.o: Coche.cpp
+	$(CPP) -c Coche.cpp -o Coche.o $(CXXFLAGS)
+
+Microbus.o: Microbus.cpp
+	$(CPP) -c Microbus.cpp -o Microbus.o $(CXXFLAGS)
+
+Carga.o: Carga.cpp
+	$(CPP) -c Carga.cpp -o Carga.o $(CXXFLAGS)
+
+Furgoneta.o: Furgoneta.cpp
+	$(CPP) -c Furgoneta.cpp -o Furgoneta.o $(CXXFLAGS)
+
+Camion.o: Camion.cpp
+	$(CPP) -c Camion.cpp -o Camion.o $(CXXFLAGS)
